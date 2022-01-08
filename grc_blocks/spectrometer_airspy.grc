@@ -78,7 +78,7 @@ blocks:
   id: variable
   parameters:
     comment: ''
-    value: '"/Users/jpw/nooelec_spectra/"'
+    value: '"/Users/jpw/airspy_spectra/"'
   states:
     bus_sink: false
     bus_source: false
@@ -90,7 +90,7 @@ blocks:
   id: variable
   parameters:
     comment: ''
-    value: 1420.9e6
+    value: 1420e6
   states:
     bus_sink: false
     bus_source: false
@@ -107,7 +107,7 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [176, 216.0]
+    coordinate: [184, 216.0]
     rotation: 0
     state: enabled
 - name: freq_step
@@ -162,7 +162,7 @@ blocks:
   id: variable
   parameters:
     comment: ''
-    value: 2e6
+    value: 10e6
   states:
     bus_sink: false
     bus_source: false
@@ -233,7 +233,7 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [264, 216.0]
+    coordinate: [272, 216.0]
     rotation: 0
     state: enabled
 - name: vec_length
@@ -640,216 +640,8 @@ blocks:
     coordinate: [112, 124.0]
     rotation: 0
     state: enabled
-- name: qtgui_histogram_sink_x_0
-  id: qtgui_histogram_sink_x
-  parameters:
-    accum: 'False'
-    affinity: ''
-    alias: ''
-    alpha1: '1.0'
-    alpha10: '1.0'
-    alpha2: '1.0'
-    alpha3: '1.0'
-    alpha4: '1.0'
-    alpha5: '1.0'
-    alpha6: '1.0'
-    alpha7: '1.0'
-    alpha8: '1.0'
-    alpha9: '1.0'
-    autoscale: 'True'
-    axislabels: 'True'
-    bins: '100'
-    color1: '"blue"'
-    color10: '"dark blue"'
-    color2: '"red"'
-    color3: '"green"'
-    color4: '"black"'
-    color5: '"cyan"'
-    color6: '"magenta"'
-    color7: '"yellow"'
-    color8: '"dark red"'
-    color9: '"dark green"'
-    comment: ''
-    grid: 'False'
-    gui_hint: 0,1,2,1
-    label1: ''
-    label10: ''
-    label2: ''
-    label3: ''
-    label4: ''
-    label5: ''
-    label6: ''
-    label7: ''
-    label8: ''
-    label9: ''
-    legend: 'True'
-    marker1: '-1'
-    marker10: '-1'
-    marker2: '-1'
-    marker3: '-1'
-    marker4: '-1'
-    marker5: '-1'
-    marker6: '-1'
-    marker7: '-1'
-    marker8: '-1'
-    marker9: '-1'
-    name: '"Heartbeat"'
-    nconnections: '1'
-    size: '1024'
-    style1: '1'
-    style10: '1'
-    style2: '1'
-    style3: '1'
-    style4: '1'
-    style5: '1'
-    style6: '1'
-    style7: '1'
-    style8: '1'
-    style9: '1'
-    type: float
-    update_time: '0.10'
-    width1: '1'
-    width10: '1'
-    width2: '1'
-    width3: '1'
-    width4: '1'
-    width5: '1'
-    width6: '1'
-    width7: '1'
-    width8: '1'
-    width9: '1'
-    xmax: '0.03'
-    xmin: '-0.03'
-  states:
-    bus_sink: false
-    bus_source: false
-    bus_structure: null
-    coordinate: [696, 628.0]
-    rotation: 0
-    state: enabled
-- name: qtgui_vector_sink_f_0_0_1
-  id: qtgui_vector_sink_f
-  parameters:
-    affinity: ''
-    alias: ''
-    alpha1: '1.0'
-    alpha10: '1.0'
-    alpha2: '1.0'
-    alpha3: '1.0'
-    alpha4: '1.0'
-    alpha5: '1.0'
-    alpha6: '1.0'
-    alpha7: '1.0'
-    alpha8: '1.0'
-    alpha9: '1.0'
-    autoscale: 'False'
-    average: '1.0'
-    color1: '"blue"'
-    color10: '"dark blue"'
-    color2: '"red"'
-    color3: '"green"'
-    color4: '"black"'
-    color5: '"cyan"'
-    color6: '"magenta"'
-    color7: '"yellow"'
-    color8: '"dark red"'
-    color9: '"dark green"'
-    comment: ''
-    grid: 'True'
-    gui_hint: 2,0,5,3
-    label1: ''
-    label10: ''
-    label2: ''
-    label3: ''
-    label4: ''
-    label5: ''
-    label6: ''
-    label7: ''
-    label8: ''
-    label9: ''
-    maxoutbuf: '0'
-    minoutbuf: '0'
-    name: Data stream
-    nconnections: '1'
-    ref_level: '0'
-    showports: 'True'
-    update_time: '0.10'
-    vlen: vec_length
-    width1: '1'
-    width10: '1'
-    width2: '1'
-    width3: '1'
-    width4: '1'
-    width5: '1'
-    width6: '1'
-    width7: '1'
-    width8: '1'
-    width9: '1'
-    x_axis_label: '"Frequency"'
-    x_start: freq - samp_rate/2
-    x_step: samp_rate/vec_length
-    x_units: '"Hz"'
-    y_axis_label: '"Signal"'
-    y_units: '"Counts"'
-    ymax: ymax
-    ymin: ymin
-  states:
-    bus_sink: false
-    bus_source: false
-    bus_structure: null
-    coordinate: [1032, 552.0]
-    rotation: 0
-    state: enabled
-- name: radio_astro_csv_filesink_0
-  id: radio_astro_csv_filesink
-  parameters:
-    affinity: ''
-    alias: ''
-    az: str(az)
-    comment: ''
-    elev: str(el)
-    freq: freq
-    integration_select: t_spec
-    location: loc
-    prefix: datadir
-    samp_rate: samp_rate
-    save_toggle: save_toggle_csv
-    short_long_time_scale: integration_time
-    vec_length: vec_length
-  states:
-    bus_sink: false
-    bus_source: false
-    bus_structure: null
-    coordinate: [1056, 708.0]
-    rotation: 0
-    state: true
-- name: radio_astro_systemp_calibration_0
-  id: radio_astro_systemp_calibration
-  parameters:
-    affinity: ''
-    alias: ''
-    az: ''
-    clip_toggle: ''
-    collect: collect
-    comment: ''
-    elev: ''
-    freq: freq
-    location: ''
-    maxoutbuf: '0'
-    minoutbuf: '0'
-    prefix: datadir
-    samp_rate: samp_rate
-    spectrumcapture_toggle: ''
-    vec_length: vec_length
-  states:
-    bus_sink: false
-    bus_source: false
-    bus_structure: null
-    coordinate: [664, 788.0]
-    rotation: 0
-    state: enabled
-- name: rtlsdr_source_0
-  id: rtlsdr_source
+- name: osmosdr_source_0_0
+  id: osmosdr_source
   parameters:
     affinity: ''
     alias: ''
@@ -885,8 +677,8 @@ blocks:
     ant7: ''
     ant8: ''
     ant9: ''
-    args: rtl=0
-    bb_gain0: '0'
+    args: airspy=0,bias=1,pack=0
+    bb_gain0: '10'
     bb_gain1: '20'
     bb_gain10: '20'
     bb_gain11: '20'
@@ -1055,7 +847,7 @@ blocks:
     freq7: 100e6
     freq8: 100e6
     freq9: 100e6
-    gain0: rf_gain
+    gain0: '20'
     gain1: '10'
     gain10: '10'
     gain11: '10'
@@ -1119,7 +911,7 @@ blocks:
     gain_mode7: 'False'
     gain_mode8: 'False'
     gain_mode9: 'False'
-    if_gain0: if_gain
+    if_gain0: '12'
     if_gain1: '20'
     if_gain10: '20'
     if_gain11: '20'
@@ -1189,7 +981,7 @@ blocks:
     num_mboards: '1'
     sample_rate: samp_rate
     sync: sync
-    time_source0: gpsdo
+    time_source0: ''
     time_source1: ''
     time_source2: ''
     time_source3: ''
@@ -1202,9 +994,217 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [64, 564.0]
+    coordinate: [88, 572.0]
+    rotation: 0
+    state: enabled
+- name: qtgui_histogram_sink_x_0
+  id: qtgui_histogram_sink_x
+  parameters:
+    accum: 'False'
+    affinity: ''
+    alias: ''
+    alpha1: '1.0'
+    alpha10: '1.0'
+    alpha2: '1.0'
+    alpha3: '1.0'
+    alpha4: '1.0'
+    alpha5: '1.0'
+    alpha6: '1.0'
+    alpha7: '1.0'
+    alpha8: '1.0'
+    alpha9: '1.0'
+    autoscale: 'True'
+    axislabels: 'True'
+    bins: '100'
+    color1: '"blue"'
+    color10: '"dark blue"'
+    color2: '"red"'
+    color3: '"green"'
+    color4: '"black"'
+    color5: '"cyan"'
+    color6: '"magenta"'
+    color7: '"yellow"'
+    color8: '"dark red"'
+    color9: '"dark green"'
+    comment: ''
+    grid: 'False'
+    gui_hint: 0,1,2,1
+    label1: ''
+    label10: ''
+    label2: ''
+    label3: ''
+    label4: ''
+    label5: ''
+    label6: ''
+    label7: ''
+    label8: ''
+    label9: ''
+    legend: 'True'
+    marker1: '-1'
+    marker10: '-1'
+    marker2: '-1'
+    marker3: '-1'
+    marker4: '-1'
+    marker5: '-1'
+    marker6: '-1'
+    marker7: '-1'
+    marker8: '-1'
+    marker9: '-1'
+    name: '"Heartbeat"'
+    nconnections: '1'
+    size: '1024'
+    style1: '1'
+    style10: '1'
+    style2: '1'
+    style3: '1'
+    style4: '1'
+    style5: '1'
+    style6: '1'
+    style7: '1'
+    style8: '1'
+    style9: '1'
+    type: float
+    update_time: '0.10'
+    width1: '1'
+    width10: '1'
+    width2: '1'
+    width3: '1'
+    width4: '1'
+    width5: '1'
+    width6: '1'
+    width7: '1'
+    width8: '1'
+    width9: '1'
+    xmax: '0.03'
+    xmin: '-0.03'
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [696, 628.0]
+    rotation: 0
+    state: enabled
+- name: qtgui_vector_sink_f_0_0_1
+  id: qtgui_vector_sink_f
+  parameters:
+    affinity: ''
+    alias: ''
+    alpha1: '1.0'
+    alpha10: '1.0'
+    alpha2: '1.0'
+    alpha3: '1.0'
+    alpha4: '1.0'
+    alpha5: '1.0'
+    alpha6: '1.0'
+    alpha7: '1.0'
+    alpha8: '1.0'
+    alpha9: '1.0'
+    autoscale: 'False'
+    average: '1.0'
+    color1: '"blue"'
+    color10: '"dark blue"'
+    color2: '"red"'
+    color3: '"green"'
+    color4: '"black"'
+    color5: '"cyan"'
+    color6: '"magenta"'
+    color7: '"yellow"'
+    color8: '"dark red"'
+    color9: '"dark green"'
+    comment: ''
+    grid: 'True'
+    gui_hint: 2,0,5,3
+    label1: ''
+    label10: ''
+    label2: ''
+    label3: ''
+    label4: ''
+    label5: ''
+    label6: ''
+    label7: ''
+    label8: ''
+    label9: ''
+    maxoutbuf: '0'
+    minoutbuf: '0'
+    name: Data stream
+    nconnections: '1'
+    ref_level: '0'
+    showports: 'True'
+    update_time: '0.10'
+    vlen: vec_length
+    width1: '1'
+    width10: '1'
+    width2: '1'
+    width3: '1'
+    width4: '1'
+    width5: '1'
+    width6: '1'
+    width7: '1'
+    width8: '1'
+    width9: '1'
+    x_axis_label: '"Frequency"'
+    x_start: freq - samp_rate/2
+    x_step: samp_rate/vec_length
+    x_units: '"Hz"'
+    y_axis_label: '"Signal"'
+    y_units: '"Counts"'
+    ymax: ymax
+    ymin: ymin
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [1032, 552.0]
+    rotation: 0
+    state: enabled
+- name: radio_astro_csv_filesink_0
+  id: radio_astro_csv_filesink
+  parameters:
+    affinity: ''
+    alias: ''
+    az: ''
+    comment: ''
+    elev: ''
+    freq: freq
+    integration_select: t_spec
+    location: ''
+    prefix: datadir
+    samp_rate: samp_rate
+    save_toggle: save_toggle_csv
+    short_long_time_scale: integration_time
+    vec_length: vec_length
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [1056, 708.0]
     rotation: 0
     state: true
+- name: radio_astro_systemp_calibration_0
+  id: radio_astro_systemp_calibration
+  parameters:
+    affinity: ''
+    alias: ''
+    az: ''
+    clip_toggle: ''
+    collect: collect
+    comment: ''
+    elev: ''
+    freq: freq
+    location: ''
+    maxoutbuf: '0'
+    minoutbuf: '0'
+    prefix: datadir
+    samp_rate: samp_rate
+    spectrumcapture_toggle: ''
+    vec_length: vec_length
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [664, 788.0]
+    rotation: 0
+    state: enabled
 
 connections:
 - [blocks_add_xx_0, '0', fft_vxx_0, '0']
@@ -1223,15 +1223,15 @@ connections:
 - [blocks_stream_to_vector_0_1, '0', blocks_multiply_const_vxx_0, '0']
 - [blocks_stream_to_vector_0_2, '0', blocks_multiply_const_vxx_0_0, '0']
 - [fft_vxx_0, '0', blocks_complex_to_mag_squared_0, '0']
+- [osmosdr_source_0_0, '0', blocks_complex_to_real_0, '0']
+- [osmosdr_source_0_0, '0', blocks_delay_0_0, '0']
+- [osmosdr_source_0_0, '0', blocks_delay_0_0_0, '0']
+- [osmosdr_source_0_0, '0', blocks_delay_0_0_0_0, '0']
+- [osmosdr_source_0_0, '0', blocks_stream_to_vector_0, '0']
 - [radio_astro_systemp_calibration_0, '0', qtgui_vector_sink_f_0_0_1, '0']
 - [radio_astro_systemp_calibration_0, '0', radio_astro_csv_filesink_0, '0']
 - [radio_astro_systemp_calibration_0, '1', blocks_null_sink_0, '0']
 - [radio_astro_systemp_calibration_0, '2', blocks_null_sink_0_0, '0']
-- [rtlsdr_source_0, '0', blocks_complex_to_real_0, '0']
-- [rtlsdr_source_0, '0', blocks_delay_0_0, '0']
-- [rtlsdr_source_0, '0', blocks_delay_0_0_0, '0']
-- [rtlsdr_source_0, '0', blocks_delay_0_0_0_0, '0']
-- [rtlsdr_source_0, '0', blocks_stream_to_vector_0, '0']
 
 metadata:
   file_format: 1
