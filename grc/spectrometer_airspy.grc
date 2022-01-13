@@ -32,20 +32,35 @@ options:
     state: enabled
 
 blocks:
+- name: az
+  id: variable_qtgui_entry
+  parameters:
+    comment: ''
+    gui_hint: 0,1,1,1
+    label: Azimuth
+    type: int
+    value: '0'
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [552, 16.0]
+    rotation: 0
+    state: true
 - name: collect
   id: variable_qtgui_chooser
   parameters:
     comment: ''
-    gui_hint: 0,2,1,1
-    label: '"Collect Data"'
-    label0: '"Unfiltered spectrum"'
-    label1: '"Filtered spectrum"'
+    gui_hint: 0,3,1,1
+    label: '"Smooth"'
+    label0: '"Raw"'
+    label1: '"Smooth"'
     label2: '"Hot calibration"'
     label3: '"Cold calibration"'
     label4: ''
     labels: '[]'
-    num_opts: '4'
-    option0: '"nocal_nofilter"'
+    num_opts: '2'
+    option0: '"raw"'
     option1: '"nocal"'
     option2: '"hot"'
     option3: '"cold"'
@@ -53,13 +68,13 @@ blocks:
     options: '[0, 1, 2]'
     orient: Qt.QVBoxLayout
     type: string
-    value: '"nocal_nofilter"'
+    value: '"raw"'
     widget: radio_buttons
   states:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [800, 12.0]
+    coordinate: [808, 16.0]
     rotation: 0
     state: enabled
 - name: custom_window
@@ -86,11 +101,42 @@ blocks:
     coordinate: [192, 8.0]
     rotation: 0
     state: true
+- name: el
+  id: variable_qtgui_entry
+  parameters:
+    comment: ''
+    gui_hint: 1,1,1,1
+    label: Elevation
+    type: int
+    value: '0'
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [552, 88.0]
+    rotation: 0
+    state: true
+- name: filename
+  id: variable_qtgui_label
+  parameters:
+    comment: ''
+    formatter: None
+    gui_hint: 1,2,1,1
+    label: Filename
+    type: string
+    value: '"timestamp_" + loc + "_" + str(az) + "_" + str(el) + ".csv"'
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [552, 240.0]
+    rotation: 0
+    state: true
 - name: freq
   id: variable
   parameters:
     comment: ''
-    value: 1420e6
+    value: 1420.0e6
   states:
     bus_sink: false
     bus_source: false
@@ -107,7 +153,7 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [184, 216.0]
+    coordinate: [176, 216.0]
     rotation: 0
     state: enabled
 - name: freq_step
@@ -134,18 +180,21 @@ blocks:
     coordinate: [128, 504.0]
     rotation: 0
     state: true
-- name: integration_time
-  id: variable
+- name: loc
+  id: variable_qtgui_entry
   parameters:
-    comment: Integration time for writing csv files
-    value: '3'
+    comment: ''
+    gui_hint: 0,2,1,1
+    label: Location
+    type: string
+    value: '"Honolulu"'
   states:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [376, 216.0]
+    coordinate: [552, 160.0]
     rotation: 0
-    state: enabled
+    state: true
 - name: rf_gain
   id: variable
   parameters:
@@ -174,7 +223,7 @@ blocks:
   id: variable_qtgui_chooser
   parameters:
     comment: ''
-    gui_hint: 1,2,1,1
+    gui_hint: 2,3,1,1
     label: Write to CSV files
     label0: Write to File
     label1: Not writing to file
@@ -197,9 +246,39 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [952, 16.0]
+    coordinate: [928, 16.0]
     rotation: 0
     state: enabled
+- name: short_or_long
+  id: variable_qtgui_chooser
+  parameters:
+    comment: ''
+    gui_hint: 1,3,1,1
+    label: Inegration Time
+    label0: Short (1 sec)
+    label1: Long (10 sec)
+    label2: ''
+    label3: ''
+    label4: ''
+    labels: '[]'
+    num_opts: '2'
+    option0: '0'
+    option1: '1'
+    option2: '2'
+    option3: '3'
+    option4: '4'
+    options: '[0, 1, 2]'
+    orient: Qt.QVBoxLayout
+    type: int
+    value: '0'
+    widget: radio_buttons
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [808, 164.0]
+    rotation: 0
+    state: true
 - name: sinc
   id: variable
   parameters:
@@ -224,16 +303,28 @@ blocks:
     coordinate: [360, 8.0]
     rotation: 0
     state: enabled
+- name: t_int
+  id: variable
+  parameters:
+    comment: Long integration time
+    value: '10'
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [264, 288.0]
+    rotation: 0
+    state: enabled
 - name: t_spec
   id: variable
   parameters:
-    comment: Spectrum update time
+    comment: Spectrum update time and short option integration time
     value: '1'
   states:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [272, 216.0]
+    coordinate: [264, 216.0]
     rotation: 0
     state: enabled
 - name: vec_length
@@ -994,7 +1085,7 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [88, 572.0]
+    coordinate: [64, 564.0]
     rotation: 0
     state: enabled
 - name: qtgui_histogram_sink_x_0
@@ -1028,7 +1119,7 @@ blocks:
     color9: '"dark green"'
     comment: ''
     grid: 'False'
-    gui_hint: 0,1,2,1
+    gui_hint: 3,3,2,1
     label1: ''
     label10: ''
     label2: ''
@@ -1113,7 +1204,7 @@ blocks:
     color9: '"dark green"'
     comment: ''
     grid: 'True'
-    gui_hint: 2,0,5,3
+    gui_hint: 2,0,4,3
     label1: ''
     label10: ''
     label2: ''
@@ -1147,14 +1238,14 @@ blocks:
     x_step: samp_rate/vec_length
     x_units: '"Hz"'
     y_axis_label: '"Signal"'
-    y_units: '"Counts"'
+    y_units: '"Power"'
     ymax: ymax
     ymin: ymin
   states:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [1032, 552.0]
+    coordinate: [1048, 552.0]
     rotation: 0
     state: enabled
 - name: radio_astro_csv_filesink_0
@@ -1162,16 +1253,16 @@ blocks:
   parameters:
     affinity: ''
     alias: ''
-    az: ''
+    az: str(az)
     comment: ''
-    elev: ''
+    elev: str(el)
     freq: freq
-    integration_select: t_spec
-    location: ''
+    integration_select: short_or_long
+    location: loc
     prefix: datadir
     samp_rate: samp_rate
     save_toggle: save_toggle_csv
-    short_long_time_scale: integration_time
+    short_long_time_scale: t_int
     vec_length: vec_length
   states:
     bus_sink: false
